@@ -2,22 +2,55 @@
 
 using namespace std;
 
-int main() {
+void printHeader() {
 
-    // int nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    cout << "Multiplications " << endl;
+    cout << "\t";
 
-    cout << "     1   2   3   4   5   6   7   8   9   10" << endl;
-    cout << "_____________________________________________" << endl;
     for (int i = 1; i <= 10; i++)
     {
-        cout << i << "  | ";
+        cout << i << "\t";
+    }
+    cout << "\n";
+}
+
+string columnSeperator(int i) {
+    if (i < 10)
+    {
+        return "   |";
+    }
+    else {
+        return "  |";
+    }
+}
+
+void printMultiplicationTable() {
+    printHeader();
+        for (int i = 1; i <= 10; i++) {
+        cout << " " << i << columnSeperator(i) << "\t";
         for (int j = 1; j <= 10; j++)
         {
-            cout << j * i << "   ";
+            cout << j * i << "\t";
         }
-
-        cout << "\n";
+        cout << endl;
     }
+}
+
+int main() {
+
+    printMultiplicationTable();
+
+    // printHeader();
+    // for (int i = 1; i <= 10; i++)
+    // {
+    //     cout << i << "  | ";
+    //     for (int j = 1; j <= 10; j++)
+    //     {
+    //         cout << j * i << "   ";
+    //     }
+
+    //     cout << "\n";
+    // }
     
     return 0; 
 
