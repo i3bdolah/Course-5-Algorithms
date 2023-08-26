@@ -19,21 +19,22 @@ bool comapringTwoNums(char s1, char s2) {
     return s1 == s2;
 }
 
-void calcRepeatedDigit(int allDigits, int goalDigit) {
+int calcFrequncyDigit(int allDigits, int goalDigit) {
     int remainder = 0;
-    int numOfRepeatedGoal = 0;
+    int numOfFrequncy = 0;
 
     while (allDigits > 0)
     {
         remainder = allDigits % 10;
+        allDigits = allDigits / 10;
+
         if (goalDigit == remainder)
         {
-            numOfRepeatedGoal++;
+            numOfFrequncy++;
         }
-        allDigits = allDigits / 10;
     }
     
-    cout << "Digit " << goalDigit << " Frequency is " << numOfRepeatedGoal << " Time(s).";
+    return numOfFrequncy;
 }
 
 
@@ -42,7 +43,8 @@ int main() {
     int digits = readPositiveNums("Enter Digits : ");
     int goalDigit = readPositiveNums("Enter The Goal Digit : ");
 
-    calcRepeatedDigit(digits,goalDigit);
+
+    cout << "Digit " << goalDigit << " Frequency is " << calcFrequncyDigit(digits,goalDigit) << " Time(s)." << endl;
     
 
     return 0; 
