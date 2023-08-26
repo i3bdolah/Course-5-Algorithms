@@ -30,8 +30,8 @@ void printReverse(int num) {
 
     while (num > 0)
     {
-        remainder = num % 10;
-        num = num / 10;
+        remainder = num % 10; // Takes last num
+        num = num / 10; // Removes last num
         cout << remainder << endl;
     }
     
