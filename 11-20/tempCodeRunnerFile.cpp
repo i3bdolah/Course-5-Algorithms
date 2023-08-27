@@ -15,7 +15,7 @@ int readPositiveNums(string msg) {
 }
 
 void printLetterPattern(int num) {
-    for (int i = 65; i < num + 65; i++)
+    for (int i = 64; i > num + 64; i++)
     {
          for (int j = 1; j <= i - 64; j++)
         {

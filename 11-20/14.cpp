@@ -14,7 +14,19 @@ int readPositiveNums(string msg) {
     return num;
 }
 
-int main() {
+void printInvertedLetterPattern(int num) {
+    for (int i = num + 64; i > 64; i--)
+    {
+         for (int j = 1; j <= i - 64; j++)
+        {
+            cout << char(i);
+        }
+        cout << "\n";
+    }
+    
+}
 
+int main() {
+    printInvertedLetterPattern(readPositiveNums("Enter Your Number : "));
     return 0; 
 }
