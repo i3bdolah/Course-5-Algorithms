@@ -4,7 +4,8 @@
     "iostream": "cpp",
     "*.tcc": "cpp",
     "cmath": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "istream": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

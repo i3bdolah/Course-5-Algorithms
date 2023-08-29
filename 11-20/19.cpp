@@ -5,17 +5,15 @@
 
 using namespace std;
 
-int generateRandomNumber() {
-    return rand() % 10 + 1; 
+int generateRandomNumber(int from, int to) {
+    return rand() % (to - from + 1) + from; 
 }
 
 int main() {
-    int num1 = generateRandomNumber();
-    int num2 = generateRandomNumber();
-    int num3 = generateRandomNumber();
+    srand((unsigned)time(NULL));
 
-    cout << num1 << endl;
-    cout << num2 << endl;
-    cout << num3 << endl;
+    cout << generateRandomNumber(1,20) << endl;
+    cout << generateRandomNumber(1,20) << endl;
+    cout << generateRandomNumber(1,20) << endl;
     return 0; 
 }

@@ -8,7 +8,7 @@ string readWord(string msg) {
     string word = "";
 
     cout << msg;
-    cin >> word;
+    getline(cin, word);
 
     return word;
 }
