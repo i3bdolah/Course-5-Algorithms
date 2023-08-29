@@ -1,20 +1,21 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <stdlib.h>     /* srand, rand */
 
 using namespace std;
 
-int readPositiveNums(string msg) {
-    int num = 0;
-    do
-    {
-        cout << msg;
-        cin >> num;
-    } while (num <= 0);
-    return num;
+int generateRandomNumber() {
+    return rand() % 10 + 1; 
 }
 
 int main() {
+    int num1 = generateRandomNumber();
+    int num2 = generateRandomNumber();
+    int num3 = generateRandomNumber();
 
+    cout << num1 << endl;
+    cout << num2 << endl;
+    cout << num3 << endl;
     return 0; 
 }
