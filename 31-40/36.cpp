@@ -14,9 +14,21 @@ int readPositiveNums(string msg) {
     return num;
 }
 
-void addingOperation(int arr[100], int arrLength, int goalNum) {
+void addingOperation(int arr[100], int& arrLength, int goalNum) {
     arrLength++;
     arr[arrLength-1] = goalNum;
+}
+
+void inputUserNumInArr(int arr[100], int& arrLength) {
+    bool Addmore = true;
+
+    do
+    {
+        addingOperation(arr, arrLength, readPositiveNums("\nPlease Enter Number : "));
+        cout << "\nDo you want to continue ? [Yes = 1] [No = 0] : ";
+        cin >> Addmore;
+    } while (Addmore);
+    
 }
 
 void printArray(int arr[100], int arrLength) {
@@ -28,26 +40,9 @@ void printArray(int arr[100], int arrLength) {
 }
 
 int main() {
-    int arrLength = 0;
-    int arr[100];
-    bool activeOp = true;
+    int arr[100], arrLength = 0;
+    inputUserNumInArr(arr, arrLength);
 
-    while (activeOp)
-    {
-        int arrNum = readPositiveNums("\nPlease Enter Number : ");
-        addingOperation(arr,arrLength,arrNum);
-
-        int ifContinue = readPositiveNums("Do you want to continue ? [Yes = 1] [No = 0] : ");
-        if (ifContinue == 1)
-        {
-            continue;
-        }
-        else {
-            activeOp = false;
-            break;
-        }
-    }
-    
     cout << "\nArray Length: " << arrLength;
     cout << "\nArray Elements: ";
     printArray(arr, arrLength);
