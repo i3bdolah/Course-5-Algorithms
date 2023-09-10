@@ -52,7 +52,7 @@ int main() {
     srand((unsigned)time(NULL));
 
     int arrLength = readPositiveNums("Enter Array Length : ");
-    int arr[100], shuffledArr[100];
+    int arr[100];
 
     fillArrayElements(arr, arrLength);
 
