@@ -33,12 +33,8 @@ void addingOperation(int arr[100], int& arrLength, int goalNum) {
 void copyOddNumbers(int fArr[100], int lArr[100], int fArrLength, int& lArrLength) {
     for (int i = 0; i < fArrLength; i++)
     {
-        // if (fArr[i] % 2 == 0)
         if (fArr[i] % 2 != 0)
-        {
             addingOperation(lArr, lArrLength, fArr[i]);
-        }
-        
     }
 }
 

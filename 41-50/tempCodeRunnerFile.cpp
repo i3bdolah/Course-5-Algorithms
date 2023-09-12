@@ -1,0 +1,2 @@
+
+    printArray(lArr, arrLength2);
