@@ -1,2 +1,1 @@
-
-    printArray(lArr, arrLength2);
+isPalindrome
