@@ -4,25 +4,45 @@
 
 using namespace std;
 
-int readPositiveNums(string msg) {
-    int num = 0;
-    do
-    {
+float readPositiveNums(string msg) {
+    float num = 0;
         cout << msg;
         cin >> num;
-    } while (num <= 0);
     return num;
 }
 
-void printArray(int arr[100], int arrLength) {
-    for (int i = 0; i < arrLength; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << "\n";
+int myAbs(int num) {
+    // Abu-Hadhoud Solution! [Daammmmnnnn Really Simple].
+    if (num > 0)
+        return num;
+    else
+        return num * -1;    
 }
 
+float getFraction(float num) {
+    return num - (int) num;
+}
+
+float myFloor(float num) {
+    if (num > 0)
+    {
+        return int(num);
+    }
+    else {
+        return int(num) - 1;
+    }
+}
+
+
 int main() {    
-    
-    return 0; 
+    float userNumber = readPositiveNums("Please Enter your negative number : ");
+    // float userNumber = -10.7;
+    // float userNumber = 10.2;
+
+    cout << "\nmyFloor() : ";
+    cout << myFloor(userNumber);
+    cout << "\nMath floor() : ";
+    cout << floor(userNumber);
+
+    return 0;
 }
