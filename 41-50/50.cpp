@@ -4,25 +4,36 @@
 
 using namespace std;
 
-int readPositiveNums(string msg) {
-    int num = 0;
-    do
-    {
+float readPositiveNums(string msg) {
+    float num = 0;
         cout << msg;
         cin >> num;
-    } while (num <= 0);
     return num;
 }
 
-void printArray(int arr[100], int arrLength) {
-    for (int i = 0; i < arrLength; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << "\n";
+float mySqrt(float num) {
+    // float subsCount = 0;
+    // for (int i = 1; num > 0; i += 2)
+    // {
+    //     num = num - i;
+    //     subsCount++;
+    // }
+    // return subsCount;
+
+    // Abu-Hadhoud Solution! [Daammmmnnnn Really Simple].
+    return pow(num, 0.5);
 }
 
+
 int main() {    
-    
-    return 0; 
+    // float userNumber = readPositiveNums("Please Enter your number : ");
+    // float userNumber = 25;
+    float userNumber = 50;
+
+    cout << "\nmySqrt() : ";
+    cout << mySqrt(userNumber);
+    cout << "\nMath sqrt() : ";
+    cout << sqrt(userNumber);
+
+    return 0;
 }
