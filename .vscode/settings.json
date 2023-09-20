@@ -9,7 +9,8 @@
     "bitset": "cpp",
     "string_view": "cpp",
     "regex": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "numbers": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

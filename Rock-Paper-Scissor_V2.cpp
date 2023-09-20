@@ -35,7 +35,7 @@ enGameChoice readPlayerChoice() {
     short choice = 1;
     do
     {
-        cout << "\nEnter The Number of Rounds : ";
+        cout << "\nEnter Your Choice [Rock = 1, Paper = 2, Scissor = 3] : ";
         cin >> choice;
     } while (choice >= 3 && choice <= 1);
     return (enGameChoice) choice;
@@ -95,8 +95,6 @@ void printRoundResults(stRoundInfo RoundInfo) {
     cout << "Player Choice                                      : " << choiceName(RoundInfo.PlayerChoice) << endl;
     cout << "Computer Choice                                    : " << choiceName(RoundInfo.ComputerChoice) << endl;
     cout << "Round Winner                                       : " << RoundInfo.WinnerName << endl;
-
-    setWinnerScreenColor(RoundInfo.Winner);
 }
 
 enWinner whoWinTheGame(short playerWinTimes, short computerWinTimes) {
@@ -138,6 +136,7 @@ stGameResults playGame(short HowManyRounds) {
         RoundInfo.Winner = gameWinningLogic(RoundInfo);
         RoundInfo.WinnerName = winnerName(RoundInfo.Winner);
 
+        setWinnerScreenColor(RoundInfo.Winner);
         //Increase win/lose/draw counters
         if (RoundInfo.Winner == enWinner::Player)
             playerWinTimes++;
