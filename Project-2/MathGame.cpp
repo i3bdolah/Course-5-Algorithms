@@ -9,27 +9,29 @@ enum enDifficultyLevel { Easy = 1, Medium, Hard, MixDifficulty };
 
 struct stGameRules
 {
-    int totalQuestions;
+    int totalQuestions = 0;
     enDifficultyLevel difficultyLevel;
     enOperationType operationType;
 };
 
 struct stRoundInfo
 {
-    int totalQuestions;
-    int firstNum;
-    int secondNum;
-    int playerResult;
-    int result;
+    int totalQuestions = 0;
+    int firstNum = 0;
+    int secondNum = 0;
+    int playerResult = 0;
+    int result = 0;
+    enDifficultyLevel difficultyLevel;
+    enOperationType operationType;
 };
 
 struct stGameSummary
 {
-    int totalQuestions;
+    int totalQuestions = 0;
     enDifficultyLevel difficultyLevel;
     enOperationType operationType;
-    int correctQuestions;
-    int wrongQuestions;
+    int correctQuestions = 0;
+    int wrongQuestions = 0;
     string passOrFail;
 };
 
@@ -51,23 +53,23 @@ int getNumberByDifficultyLevel(enDifficultyLevel difficultyLevel) {
     switch (difficultyLevel)
     {
     case enDifficultyLevel::Easy :
-        return rand() % (50 - 1 + 1) + 1; 
+        return generateRandomNumber(1,50); 
         break;
     
     case enDifficultyLevel::Medium :
-        return rand() % (100 - 50 + 1) + 50; 
+        return generateRandomNumber(50,100); 
         break;
 
     case enDifficultyLevel::Hard :
-        return rand() % (200 - 100 + 1) + 100; 
+        return generateRandomNumber(100,200); 
         break;
 
     case enDifficultyLevel::MixDifficulty :
-        return rand() % (200 - 1 + 1) + 1; 
+        return generateRandomNumber(1,200); 
         break;
 
     default:
-        return rand() % (200 - 1 + 1) + 1; 
+        return generateRandomNumber(1,200); 
         break;
     }
 
@@ -104,10 +106,18 @@ int getResultByOperationType(enOperationType operationType, int a, int b) {
         return performDivision(a, b);
         break;
     case enOperationType::Mix:
-        return rand() % (200 - 1 + 1) + 1;
-        break;
-    default:
-        return rand() % (200 - 1 + 1) + 1;
+        // Generate a random number from 0 to 3 to select an operation
+        int randomOperation = generateRandomNumber(0,3);
+        switch (randomOperation) {
+        case 0:
+            return performAddition(a, b);
+        case 1:
+            return performSubtraction(a, b);
+        case 2:
+            return performMultiplication(a, b);
+        case 3:
+            return performDivision(a, b);
+        }
         break;
     }
 }
@@ -153,11 +163,11 @@ stGameRules rulesQuestions() {
     cout << "Enter The number of questions : ";
     cin >> gameRules.totalQuestions;
 
-    cout << "Enter The difficulty level /[1-Easy, 2-Medium, 3-Hard, 4-Mix] : ";
+    cout << "Enter The difficulty level [1-Easy, 2-Medium, 3-Hard, 4-Mix] : ";
     cin >> difficultyLevel;
     gameRules.difficultyLevel = getDifficultyLevelFromInput(difficultyLevel);
 
-    cout << "Enter The operation type /[1-Add, 2-Sub, 3-Mul, 4-Div, 5-Mix] : ";
+    cout << "Enter The operation type [1-Add, 2-Sub, 3-Mul, 4-Div, 5-Mix] : ";
     cin >> operationType;
     gameRules.operationType = getOperationTypeFromInput(operationType);
 
@@ -209,13 +219,13 @@ string getDifficultyLevelString(enDifficultyLevel difficultyLevel) {
 
 void correctAnswerMsg(int result) {
     cout << "Correct Answer :-)\n";
-    cout << "The answer is = \n\n" << result;
+    cout << "The answer is = " << result << "\n\n";
     correctAnswerScreen();
 }
 
 void wrongAnswerMsg(int result) {
     cout << "Wrong Answer :-)\n";
-    cout << "The answer is = \n\n" << result;
+    cout << "The answer is = " << result << "\n\n";
     wrongAnswerScreen();
 }
 
